@@ -1,0 +1,33 @@
+// Import variables since this file is imported directly
+@import '../../../styles/variables';
+@import '../../../styles/auth-variables';
+@import '../../../styles/typography';
+
+.auth-form-content {
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  
+  h1 {
+    margin-bottom: 0.5rem;
+    color: $color-brand-primary;
+  }
+  
+  p {
+    margin-bottom: 2rem;
+    color: $color-text-dark;
+  }
+}
+
+.font-test {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid $color-border-gray;
+  border-radius: 6px;
+  text-align: left;
+  
+  p {
+    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}

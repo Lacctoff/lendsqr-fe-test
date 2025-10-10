@@ -1,0 +1,74 @@
+.auth-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+
+  .auth-illustration {
+    background-color: $color-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      display: flex;
+      flex-direction: row;
+      align-self: start;
+      margin-left: 14%;
+      margin-bottom: 6rem;
+      margin-top: -2.5rem;
+      gap: 0.6rem;
+      align-items: top;
+
+      .union {
+        display: flex;
+        align-items: center;
+        margin-top: -0.5rem;
+        img {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+
+      .lendsqr {
+        display: flex;
+        align-items: center;
+        img {
+          width: 8.5rem;
+          height: 2.25rem;
+        }
+      }
+    }
+
+    img {
+      width: 37.5rem;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .auth-form {
+    padding: $auth-container-padding;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-avenir-next;
+    border: $auth-form-border;
+    box-shadow: 
+      $auth-form-shadow-primary,
+  }
+
+  @media (max-width: $auth-mobile-breakpoint) {
+    grid-template-columns: 1fr;
+
+    .auth-illustration {
+      display: none;
+    }
+
+    .auth-form {
+      padding: $auth-container-padding-mobile;
+    }
+  }
+}
+
+

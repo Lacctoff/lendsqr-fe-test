@@ -1,0 +1,142 @@
+
+// Font Family Variables
+
+
+// Custom Local Fonts
+$font-avenir-next: 'Avenir Next', sans-serif;
+$font-sf-compact: 'SF Compact Text', sans-serif;
+
+// Google Fonts (via Next.js)
+$font-work-sans: var(--font-work-sans), sans-serif;
+$font-roboto: var(--font-roboto), sans-serif;
+$font-inter: var(--font-inter), sans-serif;
+
+// Default Font Stack
+$font-primary: $font-avenir-next;
+$font-secondary: $font-work-sans;
+$font-mono: 'SF Mono', 'Consolas', 'Monaco', monospace;
+
+
+// Font Weights
+
+$font-weight-ultra-light: 200;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-heavy: 900;
+
+
+// Font Sizes
+
+$font-size-xxs: 12px;
+$font-size-xs: 14px;
+$font-size-sm: 16px;
+$font-size-md: 20px;
+$font-size-lg: 22px;
+$font-size-xl: 24px;
+$font-size-xxl: 30px;
+$font-size-huge: 40px;
+$font-size-display: 100px;
+
+
+// Typography Utility Classes
+
+
+// Font Family Utilities
+// Custom Local Fonts
+.font-avenir {
+    font-family: $font-avenir-next;
+}
+
+.font-sf-compact {
+    font-family: $font-sf-compact;
+}
+
+// Google Fonts
+.font-work-sans {
+    font-family: $font-work-sans;
+}
+
+.font-roboto {
+    font-family: $font-roboto;
+}
+
+.font-inter {
+    font-family: $font-inter;
+}
+
+// Semantic Font Classes
+.font-primary {
+    font-family: $font-primary;
+}
+
+.font-secondary {
+    font-family: $font-secondary;
+}
+
+.font-mono {
+    font-family: $font-mono;
+}
+
+// Font Weight Utilities
+.font-ultra-light {
+    font-weight: $font-weight-ultra-light;
+}
+
+.font-regular {
+    font-weight: $font-weight-regular;
+}
+
+.font-medium {
+    font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+    font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+    font-weight: $font-weight-bold;
+}
+
+.font-heavy {
+    font-weight: $font-weight-heavy;
+}
+
+// Font Size Utilities
+.text-xxs {
+    font-size: $font-size-xxs;
+}
+
+.text-xs {
+    font-size: $font-size-xs;
+}
+
+.text-sm {
+    font-size: $font-size-sm;
+}
+
+.text-md {
+    font-size: $font-size-md;
+}
+
+.text-lg {
+    font-size: $font-size-lg;
+}
+
+.text-xl {
+    font-size: $font-size-xl;
+}
+
+.text-xxl {
+    font-size: $font-size-xxl;
+}
+
+.text-huge {
+    font-size: $font-size-huge;
+}
+
+.text-display {
+    font-size: $font-size-display;
+}

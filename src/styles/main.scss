@@ -1,0 +1,29 @@
+// Import fonts first
+@import './fonts-avenir';
+@import './fonts-sf-compact';
+
+// Import variables and typography
+@import './variables';
+@import './auth-variables';
+@import './typography';
+@import './mixins';
+@import './auth-layout';
+
+// Global reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Base body styles
+body {
+    font-family: $font-avenir-next;
+    font-weight: $font-weight-regular;
+    color: $color-text-dark;
+}
+
+img,
+svg {
+  image-rendering: -webkit-optimize-contrast;
+}
