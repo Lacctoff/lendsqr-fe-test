@@ -1,33 +1,104 @@
-// Import variables since this file is imported directly
 @import '../../../styles/variables';
 @import '../../../styles/auth-variables';
 @import '../../../styles/typography';
+@import '../../../styles/mixins';
 
 .auth-form-content {
-  text-align: center;
-  max-width: 400px;
+  @include flex-center(column, start, center);
+  max-width: $auth-form-max-width;
   width: 100%;
+
+  .auth-form-logo {
+    display: none;
+    margin-bottom: 3rem;
+    
+    @media (max-width: $auth-mobile-breakpoint) {
+      display: block;
+      width: 140px;
+      height: auto;
+    }
+  }
   
   h1 {
     margin-bottom: 0.5rem;
     color: $color-brand-primary;
+    line-height: 3.4rem;
+    @include text-stroke;
   }
   
   p {
     margin-bottom: 2rem;
     color: $color-text-dark;
+    @include text-stroke;
   }
 }
 
-.font-test {
-  margin-top: 2rem;
-  padding: 1rem;
-  border: 1px solid $color-border-gray;
-  border-radius: 6px;
-  text-align: left;
+.auth-form-container {
+  margin-top: 3.75rem;
+  width: 100%;
   
   p {
     margin-bottom: 0.5rem;
     margin-bottom: 0.5rem;
+  }
+}
+
+// Auth Form Wrapper
+// This is the wrapper for the auth form
+.auth-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+
+  // Password toggle button styles
+  .floating-input-wrapper {
+    position: relative;
+    
+  }
+
+  // Forgot password link styles
+  .forgot-password-link {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-xxs;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-brand-secondary;
+    text-decoration: none;
+    align-self: flex-start;
+    @include text-stroke;
+    
+    &:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+  }
+
+  // Login button styles
+  .login-button {
+    width: 100%;
+    height: 48px;
+    background: $color-brand-secondary;
+    border: 1px solid rgba(84, 95, 125, 0.15);
+    border-radius: 8px;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-xs;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-white;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    // @include text-stroke;
+
+    &:hover {
+      opacity: 0.9;
+    }
+    
+    &:active {
+      opacity: 0.8;
+    }
   }
 }

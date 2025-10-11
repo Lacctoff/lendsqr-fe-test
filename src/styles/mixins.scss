@@ -1,0 +1,11 @@
+@mixin flex-center($direction: row, $align: center, $justify: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin text-stroke {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgba(84, 95, 125, 0.15);
+}

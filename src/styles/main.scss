@@ -27,3 +27,74 @@ img,
 svg {
   image-rendering: -webkit-optimize-contrast;
 }
+
+//input styles
+.floating-label {
+  display: block;
+  position: relative;
+  width: 100%;
+
+  .floating-input {
+    width: 100%;
+    padding: 1.125rem 1rem;
+    border: 1px solid $color-border-gray-stroke;
+    border-radius: 5px;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-regular;
+    color: $color-text-dark;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      border-color: $color-brand-secondary;
+      box-shadow: 0 0 0 2px rgba(57, 205, 204, 0.2);
+    }
+
+    &:focus + .label-text,
+    &:not(:placeholder-shown) + .label-text {
+      transform: translateY(-2.1rem);
+      font-size: $font-size-xxs;
+      color: $color-brand-secondary;
+    }
+  }
+
+  .label-text {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $color-white;
+    padding: 0 4px;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    color: $color-text-dark;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    @include text-stroke;
+  }
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-xxs;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  outline: none;
+  border:none;
+  color: $color-brand-secondary;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2;
+  @include text-stroke;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}

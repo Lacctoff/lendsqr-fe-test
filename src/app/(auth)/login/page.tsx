@@ -1,22 +1,24 @@
 import React from 'react'
 import './LoginPage.scss'
+import Image from 'next/image';
+import AuthForm from '@/components/AuthForm';
+import Link from 'next/link';
 
-const page = () => {
+const LoginPage = () => {
   return (
     <div className="auth-form-content">
-      <h1 className="font-avenir font-bold text-huge">Welcome!</h1>
-      <p className="font-work-sans font-regular text-md">Enter details to login.</p>
+      {/* logo to be displayed on mobile devices only */}
+      <Image src="/images/auth-mobile-logo.svg" alt="Lendsqr Logo" width={176} height={36} className='auth-form-logo' />
+
+      <h1 className="font-bold text-huge">Welcome!</h1>
+      <p className="font-regular text-md">Enter details to login.</p>
       
-      {/* Test different fonts */}
-      <div className="font-test">
-        <p className="font-avenir font-regular text-sm">Avenir Next - Primary font</p>
-        <p className="font-work-sans font-medium text-sm">Work Sans - Secondary font</p>
-        <p className="font-sf-compact font-heavy text-lg">2,453 - SF Compact for numbers</p>
-        <p className="font-roboto font-regular text-sm">Roboto - Data font</p>
-        <p className="font-inter font-medium text-sm">Inter - Modern UI font</p>
+      {/* Form Component */}
+      <div className="auth-form-container">
+        <AuthForm />  
       </div>
     </div>
   );
 }
 
-export default page
+export default LoginPage
