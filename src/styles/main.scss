@@ -8,6 +8,7 @@
 @import './typography';
 @import './mixins';
 @import './auth-layout';
+@import './dashboard';
 
 // Global reset
 * {
@@ -21,6 +22,15 @@ body {
     font-family: $font-avenir-next;
     font-weight: $font-weight-regular;
     color: $color-text-dark;
+}
+
+ul {
+  list-style: none;
+}
+
+
+a {
+  text-decoration: none;
 }
 
 img,
@@ -96,5 +106,315 @@ svg {
   
   &:hover {
     opacity: 0.8;
+  }
+}
+
+// Search Bar Component
+.search-bar {
+  display: flex;
+  width: 400px;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #D9D9D9;
+  background-color: $color-white;
+
+  .search-input {
+    flex: 1;
+    padding: 0 16px;
+    border: none;
+    outline: none;
+    font-family: $font-work-sans, sans-serif;
+    font-style: normal;
+    font-size: $font-size-xs;
+    color: #545F7D;
+    background-color: transparent;
+
+    &::placeholder {
+      color: #545F7D;
+      opacity: 0.7;
+    }
+
+    &:focus {
+      background-color: $color-white;
+    }
+  }
+
+  .search-button {
+    width: 56px;
+    height: 100%;
+    background-color: $color-brand-secondary;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #1a9a9a;
+    }
+
+    &:active {
+      background-color: #178787;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// Header Layout Styles
+.nav-bar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: $color-white;
+  // border-bottom: 1px solid #D9D9D9;
+  padding: 1.5rem 0;
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-container {
+  margin: 0 auto;
+  padding: 0 3.75rem 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10.5rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.docs-link {
+  color: $color-brand-primary;
+  text-decoration: none;
+  font-family: $font-roboto;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  line-height: 16px;
+  transition: color 0.2s ease;
+  text-decoration: underline;
+
+  
+}
+
+.notifications-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-left: 0.5rem;
+  transition: background-color 0.2s ease;
+  color: #545F7D;
+
+  // &:hover {
+  //   background-color: rgba(84, 95, 125, 0.1);
+  // }
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+}
+
+.profile-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.username {
+  font-family: $font-work-sans;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  line-height: 16px;
+  color: $color-brand-primary;
+}
+
+.chevron-down-icon {
+  width: 8px;
+  height: 5px;
+}
+
+// Dashboard Layout
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: $color-off-white;
+}
+
+.dashboard-main {
+  flex: 1;
+  // margin-left: 283px; 
+  margin-top: 96px; 
+  padding: 3.75rem;
+  background-color: $color-off-white;
+}
+
+// Sidebar styles
+.sidebar-wrapper {
+  font-family: $font-work-sans;
+  width: 283px;
+  height: 100vh;
+  background-color: $color-white;
+  padding: 140px 30px 30px 30px;
+  // position: fixed;
+  // left: 0;
+  // top: 0;
+  z-index: 999;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  overflow-y: auto;
+
+  // Hide scrollbar but keep scroll functionality
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-header {
+    ul {
+      li {
+        a {
+          font-size: $font-size-sm;
+          color: $color-brand-primary;
+          font-weight: $font-weight-medium;
+          line-height: 19px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          img:first-child {
+            width: 16px;
+            height: 16px;
+          }
+          img:last-child {
+            width: 14px;
+            height: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  nav {
+    .dashboard-menu,
+    .customers-menu,
+    .business-menu,
+    .settings-menu {
+      margin-top: 3.25rem;
+      margin-bottom: 1.875rem;
+
+      &:not(.dashboard-menu) {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        li {
+          margin-bottom: 0.625rem;
+
+          a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            line-height: 19px;
+            padding: 0.75rem 1.25rem 0.75rem 0;
+            text-decoration: none;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-regular;
+            color: $color-text-dark;
+            position: relative;
+            transition: all 0.25s ease;
+
+            img {
+              width: 1rem;
+              height: 1rem;
+              transition: all 0.25s ease;
+            }
+
+            // Default inactive state
+            &:not(.active) {
+              background-color: transparent;
+
+              img {
+                filter: brightness(0) saturate(100%) invert(33%) sepia(8%) saturate(1058%) hue-rotate(202deg) brightness(94%) contrast(89%);
+              }
+
+              &:hover {
+                background-color: rgba(57, 205, 204, 0.06);
+                color: $color-text-dark;
+                margin: 0 -30px;
+                padding: 0.75rem 1.25rem 0.75rem 30px;
+                
+                img {
+                  opacity: 0.9;
+                  filter: brightness(0) saturate(100%) invert(33%) sepia(8%) saturate(1058%) hue-rotate(202deg) brightness(94%) contrast(89%);
+                }
+              }
+            }
+
+            // Active state
+            &.active {
+              color: $color-brand-primary;
+              background-color: rgba(57, 205, 204, 0.06);
+              margin: 0 -30px;
+              padding: 0.75rem 1.25rem 0.75rem 30px;
+
+              img {
+                filter: brightness(0) saturate(100%) invert(26%) sepia(75%) saturate(1329%) hue-rotate(215deg) brightness(93%) contrast(89%);
+              }
+
+              // Left stripe for active state
+              &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 4px;
+                background-color: $color-brand-secondary;
+              }
+
+              &:hover {
+                background-color: rgba(57, 205, 204, 0.08);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Specific margin adjustments for different menu sections
+    .customers-menu {
+      margin-top: 1.875rem;
+    }
+
+    .business-menu {
+      margin-top: 1.875rem;
+    }
+
+    .settings-menu {
+      margin-top: 1.875rem;
+    }
   }
 }

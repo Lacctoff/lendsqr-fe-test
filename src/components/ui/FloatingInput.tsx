@@ -33,7 +33,11 @@ const FloatingInput: React.FC<FloatingInputProps> = ({
           required={required}
           disabled={disabled}
           className="floating-input"
-          autoComplete="off"
+          autoComplete="new-password"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck="false"
+          data-form-type="other"
         />
         <span className="label-text">{label}</span>
       </label>

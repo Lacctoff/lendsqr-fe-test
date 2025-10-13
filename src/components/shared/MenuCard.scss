@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+@import '../../styles/typography';
+
+
+.menu-card {
+  color: $color-text-dark;
+  font-size: $font-size-xxs !important;
+  font-weight: $font-weight-medium;
+  font-family: $font-work-sans;
+  line-height: 19px;
+  margin-bottom: 4px;
+  margin-top: 10px;
+}
