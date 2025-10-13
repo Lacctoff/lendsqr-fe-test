@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { Businesses, Customers, Dashboard, Organization, Settings } from '@/utils'
 import Link from 'next/link'
@@ -11,10 +11,21 @@ const Sidebar = () => {
   const pathname = usePathname()
 
   const isActive = (route: string) => {
-    return pathname === route
+    // Handle exact matches
+    if (pathname === route) {
+      return true
+    }
+    
+    // Handle nested routes (e.g., /users should be active for /users/user-details/123)
+    if (route !== '#' && pathname.startsWith(route + '/')) {
+      return true
+    }
+    
+    return false
   }
   return (
     <div className='sidebar-wrapper'>
+
       {/* Switch organization */}
       <div className="sidebar-header">
       <ul>
