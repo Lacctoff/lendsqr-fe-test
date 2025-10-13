@@ -1,0 +1,219 @@
+// Dashboard Layout
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: $color-off-white;
+}
+
+.dashboard-main {
+  flex: 1;
+  // margin-left: 283px; 
+  margin-top: 96px; 
+  padding: 3.75rem;
+  background-color: $color-off-white;
+}
+
+// Sidebar styles
+.sidebar-wrapper {
+  font-family: $font-work-sans;
+  width: 283px;
+  height: 100vh;
+  background-color: $color-white;
+  padding: 140px 30px 30px 30px;
+  // position: fixed;
+  // left: 0;
+  // top: 0;
+  z-index: 999;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  overflow-y: auto;
+
+  // Hide scrollbar but keep scroll functionality
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-header {
+    ul {
+      li {
+        a {
+          font-size: $font-size-sm;
+          color: $color-brand-primary;
+          font-weight: $font-weight-medium;
+          line-height: 19px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          img:first-child {
+            width: 16px;
+            height: 16px;
+          }
+          img:last-child {
+            width: 14px;
+            height: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  nav {
+    .dashboard-menu,
+    .customers-menu,
+    .business-menu,
+    .settings-menu {
+      margin-top: 3.25rem;
+      margin-bottom: 1.875rem;
+
+      &:not(.dashboard-menu) {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        li {
+          margin-bottom: 0.625rem;
+
+          a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            line-height: 19px;
+            padding: 0.75rem 1.25rem 0.75rem 0;
+            text-decoration: none;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-regular;
+            color: $color-text-dark;
+            position: relative;
+            transition: all 0.25s ease;
+
+            img {
+              width: 1rem;
+              height: 1rem;
+              transition: all 0.25s ease;
+            }
+
+            // Default inactive state
+            &:not(.active) {
+              background-color: transparent;
+
+              img {
+                filter: brightness(0) saturate(100%) invert(33%) sepia(8%) saturate(1058%) hue-rotate(202deg) brightness(94%) contrast(89%);
+              }
+
+              &:hover {
+                background-color: rgba(57, 205, 204, 0.06);
+                color: $color-text-dark;
+                margin: 0 -30px;
+                padding: 0.75rem 1.25rem 0.75rem 30px;
+                
+                img {
+                  opacity: 0.9;
+                  filter: brightness(0) saturate(100%) invert(33%) sepia(8%) saturate(1058%) hue-rotate(202deg) brightness(94%) contrast(89%);
+                }
+              }
+            }
+
+            // Active state
+            &.active {
+              color: $color-brand-primary;
+              background-color: rgba(57, 205, 204, 0.06);
+              margin: 0 -30px;
+              padding: 0.75rem 1.25rem 0.75rem 30px;
+
+              img {
+                filter: brightness(0) saturate(100%) invert(26%) sepia(75%) saturate(1329%) hue-rotate(215deg) brightness(93%) contrast(89%);
+              }
+
+              // Left stripe for active state
+              &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 4px;
+                background-color: $color-brand-secondary;
+              }
+
+              &:hover {
+                background-color: rgba(57, 205, 204, 0.08);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Specific margin adjustments for different menu sections
+    .customers-menu {
+      margin-top: 1.875rem;
+    }
+
+    .business-menu {
+      margin-top: 1.875rem;
+    }
+
+    .settings-menu {
+      margin-top: 1.875rem;
+    }
+  }
+}
+
+// Stats Card Component
+.stats-card {
+  background: $color-white;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 240px;
+  flex: 1;
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__label {
+    font-family: $font-work-sans;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    line-height: 16px;
+    color: $color-text-dark;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__figure {
+    font-family: $font-work-sans;
+    font-size: 1.5rem;
+    font-weight: $font-weight-semibold;
+    line-height: 1.2;
+    color: $color-brand-primary;
+    margin: 0;
+  }
+}
+
+// Stats Grid Layout
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}

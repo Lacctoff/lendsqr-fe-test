@@ -123,3 +123,31 @@ export const Settings = [
     label: "Audit Logs",
   },
 ]
+
+// Dashboard Stats Cards data
+export const DashboardStats = [
+  {
+    icon: "/icons/users-card.svg",
+    label: "USERS",
+    figure: "2,453",
+    iconBgColor: "rgba(223, 24, 255, 0.1)" // #DF18FF with 0.1 opacity
+  },
+  {
+    icon: "/icons/active-users-card.svg", 
+    label: "ACTIVE USERS",
+    figure: "2,453",
+    iconBgColor: "rgba(87, 24, 255, 0.1)" // #5718FF with 0.1 opacity
+  },
+  {
+    icon: "/icons/loan-card.svg",
+    label: "USERS WITH LOANS", 
+    figure: "12,453",
+    iconBgColor: "rgba(245, 95, 68, 0.1)" // #F55F44 with 0.1 opacity
+  },
+  {
+    icon: "/icons/savings-card.svg",
+    label: "USERS WITH SAVINGS",
+    figure: "102,453",
+    iconBgColor: "rgba(255, 51, 102, 0.1)" // #FF3366 with 0.1 opacity
+  }
+];
