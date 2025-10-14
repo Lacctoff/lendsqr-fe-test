@@ -94,7 +94,6 @@ button {
     color: $color-text-dark;
     pointer-events: none;
     transition: all 0.1s ease;
-    @include text-stroke;
   }
 }
 
@@ -115,9 +114,7 @@ button {
   color: $color-brand-secondary;
   cursor: pointer;
   padding: 0;
-  z-index: 2;
-  @include text-stroke;
-  
+  z-index: 2;  
   &:hover {
     opacity: 0.8;
   }

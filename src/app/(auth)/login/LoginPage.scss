@@ -23,13 +23,11 @@
     margin-bottom: 0.5rem;
     color: $color-brand-primary;
     line-height: 3.4rem;
-    @include text-stroke;
   }
   
   p {
     margin-bottom: 2rem;
     color: $color-text-dark;
-    @include text-stroke;
   }
 }
 
@@ -67,7 +65,6 @@
     color: $color-brand-secondary;
     text-decoration: none;
     align-self: flex-start;
-    @include text-stroke;
     
     &:hover {
       opacity: 0.8;
@@ -91,7 +88,6 @@
     color: $color-white;
     cursor: pointer;
     transition: opacity 0.2s ease;
-    // @include text-stroke;
 
     &:hover {
       opacity: 0.9;

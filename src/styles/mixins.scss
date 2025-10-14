@@ -5,7 +5,3 @@
   justify-content: $justify;
 }
 
-@mixin text-stroke {
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: rgba(84, 95, 125, 0.15);
-}
