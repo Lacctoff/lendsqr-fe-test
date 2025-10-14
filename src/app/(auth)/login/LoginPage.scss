@@ -1,6 +1,6 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/auth-variables' as *;
-@use '../../../styles/typography';
+@use '../../../styles/typography' as *;
 @use '../../../styles/mixins' as *;
 
 .auth-form-content {
