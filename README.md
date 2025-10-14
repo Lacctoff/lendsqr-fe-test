@@ -10,15 +10,15 @@
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
 This project is a comprehensive fintech admin dashboard designed for Lendsqr, featuring advanced user management capabilities, dynamic data visualization, and a meticulously crafted responsive design system. Built as a technical assessment, it demonstrates proficiency in modern React patterns, TypeScript best practices, and production-ready frontend architecture.
 
-**Live Demo:** [Deployed on Vercel](https://your-deployment-url.vercel.app)
+**Live Demo:** [Deployed on Vercel](https://oluwatofunmi-lasisi-lendsqr-fe-test.vercel.app)
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Core Technologies
 - **React 19.1.0** - Latest stable release with modern hooks and concurrent features
@@ -44,9 +44,9 @@ This project is a comprehensive fintech admin dashboard designed for Lendsqr, fe
 
 ---
 
-## ✨ Features Showcase
+## Features Showcase
 
-### 🎛️ Dashboard & User Management
+###  Dashboard & User Management
 - **Comprehensive User Dashboard** with real-time statistics cards showing:
   - Total Users
   - Active Users
@@ -58,7 +58,7 @@ This project is a comprehensive fintech admin dashboard designed for Lendsqr, fe
   - Custom pagination controls with configurable items-per-page (10, 20, 50, 100)
   - Status badge system (Active, Inactive, Pending, Blacklisted)
 
-### 👤 User Profile Management
+###  User Profile Management
 - **Detailed User Profile View** with tabbed navigation system:
   - Personal Information (Full Name, Phone, Email, BVN, Gender, Marital Status, Children, Residence Type)
   - Education & Employment (Level of Education, Employment Status, Sector, Duration, Office Email, Monthly Income, Loan Repayment)
@@ -66,7 +66,7 @@ This project is a comprehensive fintech admin dashboard designed for Lendsqr, fe
   - Guarantor Information (Full details with relationship context)
   - Bank Details, Loans, Savings, and System Information (placeholder tabs for future implementation)
 
-### ⚡ Interactive User Actions
+###  Interactive User Actions
 - **Contextual Action Menu** with dropdown controls:
   - View Detailed User Profile
   - Blacklist User (with confirmation flow)
@@ -74,7 +74,7 @@ This project is a comprehensive fintech admin dashboard designed for Lendsqr, fe
 - **User Tier Rating System** - Visual 3-star rating display
 - **Financial Overview Cards** - Account balance and bank account details
 
-### 🎨 Advanced UI Components
+###  Advanced UI Components
 - **Smart Search Bar** - Integrated search functionality with form submission
 - **Floating Label Inputs** - Modern input fields with animated labels and password visibility toggle
 - **Loading States** - Custom loader component with size variants (small, medium, large)
@@ -82,7 +82,7 @@ This project is a comprehensive fintech admin dashboard designed for Lendsqr, fe
 
 ---
 
-## 🏗️ Component Architecture
+##  Component Architecture
 
 ### Modular Component Strategy
 
@@ -156,7 +156,7 @@ interface UserProfileCardProps {
 
 ---
 
-## 📱 Responsive Design & UX Highlights
+## Responsive Design & UX Highlights
 
 > **This section demonstrates advanced responsive design expertise and production-ready UX patterns.**
 
@@ -217,7 +217,7 @@ The sidebar implements a **sophisticated multi-state responsive pattern** rarely
 
 ---
 
-### 📊 Intelligent Data Table Responsiveness
+### Intelligent Data Table Responsiveness
 
 The user table implements a **progressive column-hiding strategy** to maintain data integrity on small screens:
 
@@ -253,7 +253,7 @@ The user table implements a **progressive column-hiding strategy** to maintain d
 
 ---
 
-### 📐 Flexible Data Grid System (Flexbox Refactor)
+###  Flexible Data Grid System (Flexbox Refactor)
 
 User profile information sections use a **responsive flexbox grid** for optimal readability:
 
@@ -262,11 +262,11 @@ User profile information sections use a **responsive flexbox grid** for optimal 
 .fields-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.75rem; // Generous spacing for breathing room
+  gap: 1.75rem;
   
   .info-field {
-    flex: 1 1 200px; // Grow, shrink, 200px base width
-    min-width: 200px; // Prevents collapse below readable size
+    flex: 1 1 200px;
+    min-width: 200px;
   }
 }
 ```
@@ -294,7 +294,7 @@ User profile information sections use a **responsive flexbox grid** for optimal 
 
 ---
 
-### 🎭 User Profile Card Responsive Adaptation
+###  User Profile Card Responsive Adaptation
 
 The profile card demonstrates **adaptive layout restructuring** rather than simple scaling:
 
@@ -334,7 +334,7 @@ The profile tabs implement **intelligent wrapping and sizing** for mobile device
 
 ---
 
-### 🎨 Design Token System
+### Design Token System
 
 Centralized SCSS variables ensure **consistent theming** across all breakpoints:
 
@@ -364,15 +364,15 @@ This project includes a **comprehensive test suite** with 247+ test cases coveri
 ### Test Coverage
 
 #### Component Tests (7 Components)
-- ✅ **Loader** - Size variants, text customization, rendering states
-- ✅ **StatsCard** - Props rendering, styling variants, image handling
-- ✅ **ActionButtons** - Click handlers, keyboard accessibility, multiple interactions
-- ✅ **TabNavigation** - Tab switching, active states, dynamic updates, keyboard navigation
-- ✅ **AuthForm** - Form submission, navigation, password toggle, validation
+-  **Loader** - Size variants, text customization, rendering states
+-  **StatsCard** - Props rendering, styling variants, image handling
+-  **ActionButtons** - Click handlers, keyboard accessibility, multiple interactions
+-  **TabNavigation** - Tab switching, active states, dynamic updates, keyboard navigation
+-  **AuthForm** - Form submission, navigation, password toggle, validation
 
 #### UI Component Tests
-- ✅ **FloatingInput** - Input types, password visibility, validation states, user input
-- ✅ **SearchBar** - Search functionality, form submission, callback handling
+-  **FloatingInput** - Input types, password visibility, validation states, user input
+-  **SearchBar** - Search functionality, form submission, callback handling
 
 ### Running Tests
 
@@ -397,7 +397,7 @@ For detailed testing documentation, see [TESTING.md](./TESTING.md) and [RUN_TEST
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -432,15 +432,15 @@ For detailed testing documentation, see [TESTING.md](./TESTING.md) and [RUN_TEST
 
 ```bash
 # Development
-npm run dev          # Start development server with Turbopack
-npm run build        # Create production build
-npm start            # Start production server
-npm run lint         # Run ESLint for code quality
+npm run dev        
+npm run build        
+npm start            
+npm run lint         
 
 # Testing
-npm test             # Run Jest test suite
-npm run test:watch   # Run tests in watch mode
-npm run test:coverage # Generate coverage report
+npm test             
+npm run test:watch   
+npm run test:coverage 
 ```
 
 ### Project Structure
@@ -487,16 +487,16 @@ This project works out of the box with no environment variables required for loc
 
 ## 📈 Performance Optimizations
 
-- ✅ **Next.js Image Optimization** - Automatic image optimization with lazy loading
-- ✅ **Turbopack Build System** - 2x faster builds compared to Webpack
-- ✅ **Component Code Splitting** - Automatic code splitting per route
-- ✅ **SCSS Module System** - Scoped styles prevent CSS bloat
-- ✅ **React.useMemo** - Memoized computed values in data tables
-- ✅ **Font Optimization** - Google Fonts loaded via `next/font` with automatic subsetting
+-  **Next.js Image Optimization** - Automatic image optimization with lazy loading
+-  **Turbopack Build System** - 2x faster builds compared to Webpack
+-  **Component Code Splitting** - Automatic code splitting per route
+-  **SCSS Module System** - Scoped styles prevent CSS bloat
+-  **React.useMemo** - Memoized computed values in data tables
+-  **Font Optimization** - Google Fonts loaded via `next/font` with automatic subsetting
 
 ---
 
-## 🎓 Key Learning Outcomes
+## Key Learning Outcomes
 
 This project demonstrates proficiency in:
 
@@ -513,14 +513,14 @@ This project demonstrates proficiency in:
 
 ## 🔗 Links
 
-- **Live Demo:** [https://your-deployment-url.vercel.app](https://your-deployment-url.vercel.app)
+- **Live Demo:** [https://oluwatofunmi-lasisi-lendsqr-fe-test.vercel.app](https://oluwatofunmi-lasisi-lendsqr-fe-test.vercel.app)
 - **Design Reference:** [Lendsqr Figma Design](https://www.figma.com/design/ZKIubNni2wwBhxYxTPXOSy/Frontend)
 - **Testing Documentation:** [TESTING.md](./TESTING.md)
 - **Test Execution Guide:** [RUN_TESTS.md](./RUN_TESTS.md)
 
 ---
 
-## 👨‍💻 Author
+## 👨 Author
 
 **Oluwatofunmi Lasisi**
 
