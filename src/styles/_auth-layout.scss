@@ -1,3 +1,7 @@
+@use './variables' as *;
+@use './auth-variables' as *;
+@use './typography' as *;
+
 .auth-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
