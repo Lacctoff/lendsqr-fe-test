@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { User } from '@/types/user'
@@ -16,7 +16,6 @@ import Loader from '@/components/Loader'
 
 const UserDetails = () => {
   const params = useParams()
-  const router = useRouter()
   const [user, setUser] = useState<User | null>(null)
   const [activeTab, setActiveTab] = useState('general')
   const [isLoading, setIsLoading] = useState(true)
@@ -53,7 +52,7 @@ const UserDetails = () => {
       <div className="user-details-page">
         <div className="error-state">
           <h2>User not found</h2>
-          <p>The user you're looking for doesn't exist.</p>
+          <p>The user you&apos;re looking for doesn&apos;t exist.</p>
           <Link href="/users" className="back-link">
             <Image src="/icons/back-dash-icon.svg" alt="Back" width={16} height={16} />
             <span>Back to Users</span>

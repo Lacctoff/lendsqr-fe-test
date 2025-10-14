@@ -1,11 +1,11 @@
-@import './fonts-avenir';
-@import './fonts-sf-compact';
-@import './variables';
-@import './auth-variables';
-@import './typography';
-@import './mixins';
-@import './auth-layout';
-@import './dashboard';
+@use './fonts-avenir';
+@use './fonts-sf-compact';
+@use './variables' as *;
+@use './auth-variables' as *;
+@use './typography';
+@use './mixins' as *;
+@use './auth-layout';
+@use './dashboard';
 
 * {
     margin: 0;

@@ -66,7 +66,7 @@ const UserProfileCard: React.FC<UserProfileCardProps> = ({ user, className = '' 
       <div className="divider"></div>
 
       <div className="tier-section">
-        <p className="tier-label">User's Tier</p>
+        <p className="tier-label">User&apos;s Tier</p>
         <div className="star-rating">
           {renderStars(user.userTier)}
         </div>

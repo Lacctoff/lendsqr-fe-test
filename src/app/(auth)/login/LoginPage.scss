@@ -1,7 +1,7 @@
-@import '../../../styles/variables';
-@import '../../../styles/auth-variables';
-@import '../../../styles/typography';
-@import '../../../styles/mixins';
+@use '../../../styles/variables' as *;
+@use '../../../styles/auth-variables' as *;
+@use '../../../styles/typography';
+@use '../../../styles/mixins' as *;
 
 .auth-form-content {
   @include flex-center(column, start, center);
