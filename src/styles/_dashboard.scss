@@ -1371,6 +1371,10 @@
         gap: 5px;
         font-size: 0.65rem;
         
+        span {
+          display: none;
+        }
+        
         .custom-select-wrapper {
           .items-per-page {
             padding: 0.3rem 1rem 0.3rem 0.4rem;
