@@ -501,6 +501,13 @@
       max-width: none;
     }
   }
+  
+  @media (max-width: 768px) {
+    .stats-card {
+      flex: 0 0 100%;
+      max-width: none;
+    }
+  }
 }
 
 // Loader Styles
@@ -869,6 +876,21 @@
     &.status-blacklisted {
       background-color: rgba(228, 3, 59, 0.06);
       color: $color-error;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .user-table-container {
+    .status-badge {
+      background-color: transparent;
+      
+      &.status-active,
+      &.status-inactive,
+      &.status-pending,
+      &.status-blacklisted {
+        background-color: transparent;
+      }
     }
   }
 }
@@ -1502,6 +1524,10 @@
         gap: 4px;
         font-size: 0.6rem;
         
+        span {
+          display: none;
+        }
+        
         .custom-select-wrapper {
           .items-per-page {
             padding: 0.25rem 0.8rem 0.25rem 0.3rem;
@@ -2095,28 +2121,28 @@
       }
       
       .divider {
-        width: 50px; // Further reduced
+        // width: 50px;
       }
       
       .tier-section,
       .financial-section {
-        gap: 0.6rem; // Further reduced
+        gap: 0.6rem;
         
         .section-label {
-          font-size: 0.65rem; // Further reduced
+          font-size: 0.65rem;
         }
         
         .section-value {
-          font-size: 0.75rem; // Further reduced
+          font-size: 0.75rem;
         }
       }
       
       .financial-section {
-        width: 100%; // Make financial section take full width to wrap to next line
-        flex-basis: 100%; // Force it to wrap to next line
-        margin-top: 0.4rem; // Add some top margin when wrapped (slightly less for smaller screens)
-        align-self: flex-start; // Align with the start (left side) like the profile section
-        text-align: left; // Align text to the left like the profile section
+        width: 100%;
+        flex-basis: 100%;
+        margin-top: 0.4rem;
+        align-self: flex-start;
+        text-align: left;
       }
       
       // Hide the divider after tier-section when financial-section wraps
@@ -2127,34 +2153,34 @@
 
     .tab-navigation {
       padding: 0 0.5rem;
-      flex-wrap: wrap; // Allow wrapping
-      gap: 0.6rem; // Adequate gap for smaller screens
-      justify-content: center; // Center the tabs
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
       
       .tab-button {
-        padding: 0.6rem 1rem; // Adequate padding
-        font-size: 0.7rem; // Further reduced
-        white-space: nowrap; // Prevent text wrapping
-        flex: 1; // Allow flexible sizing
-        min-width: calc(33.333% - 0.4rem); // Three per row with gap consideration
-        max-width: calc(33.333% - 0.4rem); // Ensure consistent sizing
-        text-align: center; // Center text within each tab
+        padding: 0.6rem 1rem;
+        font-size: 0.7rem;
+        white-space: nowrap;
+        flex: 1;
+        min-width: calc(33.333% - 0.4rem);
+        max-width: calc(33.333% - 0.4rem);
+        text-align: center;
       }
     }
   }
 
   .tab-content {
-    padding: 0.8rem; // Reduced from 1rem
+    padding: 0.8rem;
   }
 
   .user-info-section .info-field,
   .guarantor-card .info-field {
     .info-label {
-      font-size: 0.563rem; // Even smaller label text on very small screens
+      font-size: 0.563rem;
     }
 
     .info-value {
-      font-size: 0.75rem; // Even smaller value text on very small screens
+      font-size: 0.75rem;
     }
   }
 }
