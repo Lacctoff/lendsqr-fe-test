@@ -27,7 +27,6 @@ interface TableHeader {
   width: string
 }
 
-// Table headers configuration
 const TABLE_HEADERS: TableHeader[] = [
   { label: 'ORGANIZATION', key: 'organization', width: '18%' },
   { label: 'USERNAME', key: 'username', width: '16%' },
@@ -56,7 +55,6 @@ const UserTable: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  // Filter users based on current filter state
   const filteredUsers = useMemo(() => {
     return users.filter(user => {
       const matchesOrganization = !filterState.organization || 
@@ -76,23 +74,19 @@ const UserTable: React.FC = () => {
     })
   }, [users, filterState])
 
-  // Paginate filtered users
   const paginatedUsers = useMemo(() => {
     const startIndex = (pagination.currentPage - 1) * pagination.itemsPerPage
     const endIndex = startIndex + pagination.itemsPerPage
     return filteredUsers.slice(startIndex, endIndex)
   }, [filteredUsers, pagination])
 
-  // Calculate total pages
   const totalPages = Math.ceil(filteredUsers.length / pagination.itemsPerPage)
 
-  // Handle filter changes
   const handleFilterChange = (field: keyof FilterState, value: string) => {
     setFilterState(prev => ({ ...prev, [field]: value }))
     setPagination(prev => ({ ...prev, currentPage: 1 }))
   }
 
-  // Reset all filters
   const resetFilters = () => {
     setFilterState({
       organization: '',
@@ -105,7 +99,6 @@ const UserTable: React.FC = () => {
     setPagination(prev => ({ ...prev, currentPage: 1 }))
   }
 
-  // Handle pagination
   const goToPage = (page: number) => {
     if (page >= 1 && page <= totalPages) {
       setPagination(prev => ({ ...prev, currentPage: page }))
@@ -116,13 +109,11 @@ const UserTable: React.FC = () => {
     setPagination({ currentPage: 1, itemsPerPage: items })
   }
 
-  // Handle dropdown actions
   const handleAction = (action: string, userId: string) => {
     setActiveDropdown(null)
     
     if (action === 'view') {
       setIsLoading(true)
-      // Simulate a small delay to show the loader
       setTimeout(() => {
         router.push(`/users/user-details/${userId}`)
       }, 500)
@@ -131,7 +122,6 @@ const UserTable: React.FC = () => {
     }
   }
 
-  // Get status badge class
   const getStatusClass = (status: UserStatus): string => {
     switch (status) {
       case 'Active': return 'status-badge status-active'
@@ -142,7 +132,6 @@ const UserTable: React.FC = () => {
     }
   }
 
-  // Show loader when navigating
   if (isLoading) {
     return <Loader size="large" text="Loading user details..." />
   }
@@ -150,7 +139,6 @@ const UserTable: React.FC = () => {
   return (
     <div>
     <div className="user-table-container">
-      {/* Filter Dropdown */}
       {activeFilter && (
         <div className="filter-dropdown">
             <div className="filter-form">
@@ -232,7 +220,6 @@ const UserTable: React.FC = () => {
         </div>
       )}
 
-      {/* Table */}
       <table className="user-table">
         <thead>
           <tr className="table-header">
@@ -253,7 +240,6 @@ const UserTable: React.FC = () => {
           </tr>
         </thead>
 
-        {/* Table Body */}
         <tbody className="table-body">
           {paginatedUsers.map((user, index) => (
             <tr key={user.id} className="table-row">
@@ -315,8 +301,6 @@ const UserTable: React.FC = () => {
       </table>
     </div>
 
-    {/* pagination */}
-      {/* Pagination */}
       <div className="pagination-container">
         <div className="pagination-info">
           <span>Showing</span>

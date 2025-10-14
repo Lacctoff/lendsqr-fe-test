@@ -34,12 +34,10 @@ const UserDetails = () => {
 
   const handleBlacklist = () => {
     console.log('Blacklist user:', user?.id)
-    // Add blacklist logic here
   }
 
   const handleActivate = () => {
     console.log('Activate user:', user?.id)
-    // Add activate logic here
   }
 
   const handleTabClick = (tabId: string) => {
@@ -84,30 +82,25 @@ const UserDetails = () => {
 
   return (
     <div className="user-details-page">
-      {/* Back Navigation */}
       <Link href="/users" className="back-navigation">
         <Image src="/icons/back-dash-icon.svg" alt="Back" width={16} height={16} />
         <span>Back to Users</span>
       </Link>
 
-      {/* Page Header */}
       <div className="page-header">
         <TitleHeader title="User Details" />
         <ActionButtons onBlacklist={handleBlacklist} onActivate={handleActivate} />
       </div>
 
-      {/* User Profile Card with Tabs */}
       <div className="user-profile-container">
         <UserProfileCard user={user} />
         <TabNavigation tabs={tabs} onTabClick={handleTabClick} />
       </div>
 
-      {/* Tab Content */}
       <div className="tab-content">
         <div className={`tab-panel ${activeTab === 'general' ? 'active' : ''}`}>
           {activeTab === 'general' && (
             <div className="general-details">
-            {/* Personal Information */}
             <UserInfoSection
               title="Personal Information"
               fields={[
@@ -122,7 +115,6 @@ const UserDetails = () => {
               ]}
             />
 
-            {/* Education and Employment */}
             <UserInfoSection
               title="Education and Employment"
               fields={[
@@ -136,7 +128,6 @@ const UserDetails = () => {
               ]}
             />
 
-            {/* Socials */}
             <UserInfoSection
               title="Socials"
               fields={[
@@ -146,7 +137,6 @@ const UserDetails = () => {
               ]}
             />
 
-            {/* Guarantor */}
             <div className="guarantor-section">
               <h3 className="section-title">Guarantor</h3>
               <GuarantorCard guarantor={user.guarantor} />

@@ -1,8 +1,5 @@
-// Import fonts first
 @import './fonts-avenir';
 @import './fonts-sf-compact';
-
-// Import variables and typography
 @import './variables';
 @import './auth-variables';
 @import './typography';
@@ -10,14 +7,12 @@
 @import './auth-layout';
 @import './dashboard';
 
-// Global reset
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-// Base body styles
 body {
     font-family: $font-avenir-next;
     font-weight: $font-weight-regular;
@@ -27,7 +22,6 @@ body {
 ul {
   list-style: none;
 }
-
 
 a {
   text-decoration: none;
@@ -53,14 +47,12 @@ button {
   -webkit-appearance: none;
   cursor: pointer;
 
-  // Remove the ugly dotted outline on focus in Firefox
   &::-moz-focus-inner {
     border: 0;
     padding: 0;
   }
 }
 
-//input styles
 .floating-label {
   display: block;
   position: relative;
@@ -131,7 +123,6 @@ button {
   }
 }
 
-// Search Bar Component
 .search-bar {
   display: flex;
   width: 400px;
@@ -187,12 +178,10 @@ button {
     }
   }
 
-  // Responsive: Cap search bar width at 1024px
   @media (max-width: 1024px) {
     width: 350px;
   }
 
-  // Responsive: Expand search bar to fill available space on mobile
   @media (max-width: 768px) {
     flex: 1;
     width: auto;
@@ -214,7 +203,6 @@ button {
     }
   }
 
-  // Responsive: Smallest screens - maintain full width
   @media (max-width: 480px) {
     height: 32px;
 
@@ -234,7 +222,6 @@ button {
   }
 }
 
-// Header Layout Styles
 .nav-bar-fixed {
   position: fixed;
   top: 0;
@@ -242,7 +229,6 @@ button {
   right: 0;
   z-index: 1000;
   background-color: $color-white;
-  // border-bottom: 1px solid #D9D9D9;
   padding: 1.5rem 0;
   box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
 }
@@ -278,8 +264,6 @@ button {
   line-height: 16px;
   transition: color 0.2s ease;
   text-decoration: underline;
-
-  
 }
 
 .notifications-btn {
@@ -289,10 +273,6 @@ button {
   padding-left: 0.5rem;
   transition: background-color 0.2s ease;
   color: #545F7D;
-
-  // &:hover {
-  //   background-color: rgba(84, 95, 125, 0.1);
-  // }
 }
 
 .user-profile {
@@ -301,7 +281,6 @@ button {
   gap: 10px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-
 }
 
 .profile-image {
@@ -324,7 +303,6 @@ button {
   height: 5px;
 }
 
-// Hamburger Menu Button
 .hamburger-menu-btn {
   background: none;
   border: none;
@@ -344,7 +322,6 @@ button {
   }
 }
 
-// User Profile Wrapper and Dropdown
 .user-profile-wrapper {
   position: relative;
 }
@@ -412,7 +389,6 @@ button {
   }
 }
 
-// Desktop only elements (hide on mobile)
 .desktop-only {
   display: block;
 }
@@ -423,8 +399,6 @@ button {
   }
 }
 
-// Responsive Header Styles
-// ≤1024px: Adjust spacing to give search bar more room
 @media (max-width: 1024px) {
   .navbar-container {
     padding: 0 2rem 0 1.5rem;
@@ -439,7 +413,6 @@ button {
   }
 }
 
-// ≤768px: Replace logo with hamburger, show dropdown functionality
 @media (max-width: 768px) {
   .navbar-container {
     padding: 0 1rem;
@@ -448,7 +421,7 @@ button {
   .header-left {
     gap: 0.75rem;
     flex: 1;
-    max-width: calc(100% - 140px); // Leave space for user profile
+    max-width: calc(100% - 140px);
   }
 
   .header-right {
@@ -490,7 +463,6 @@ button {
   }
 }
 
-// ≤480px: Further scale down all elements to prevent wrapping
 @media (max-width: 480px) {
   .nav-bar-fixed {
     padding: 0.875rem 0;
@@ -503,7 +475,7 @@ button {
   .header-left {
     gap: 0.5rem;
     flex: 1;
-    max-width: calc(100% - 110px); // Leave space for smaller user profile
+    max-width: calc(100% - 110px);
   }
 
   .header-right {
