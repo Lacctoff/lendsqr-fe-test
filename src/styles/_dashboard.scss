@@ -1371,8 +1371,8 @@
         gap: 5px;
         font-size: 0.65rem;
         
-        span {
-          display: none;
+        > span {
+          display: none !important;
         }
         
         .custom-select-wrapper {
@@ -1528,8 +1528,8 @@
         gap: 4px;
         font-size: 0.6rem;
         
-        span {
-          display: none;
+        > span {
+          display: none !important;
         }
         
         .custom-select-wrapper {
