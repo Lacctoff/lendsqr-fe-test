@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   title: "Lendsqr - Admin Dashboard",
   description: "Lendsqr admin dashboard for managing users and loans",
   keywords: ["lendsqr", "admin", "dashboard", "fintech", "lending"],
+  icons: {
+    icon: "/images/Union.svg",
+  },
 };
 
 export default function RootLayout({

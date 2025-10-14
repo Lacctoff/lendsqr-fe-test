@@ -186,6 +186,52 @@ button {
       height: 16px;
     }
   }
+
+  // Responsive: Cap search bar width at 1024px
+  @media (max-width: 1024px) {
+    width: 350px;
+  }
+
+  // Responsive: Expand search bar to fill available space on mobile
+  @media (max-width: 768px) {
+    flex: 1;
+    width: auto;
+    max-width: none;
+    height: 36px;
+
+    .search-input {
+      font-size: 12px;
+      padding: 0 12px;
+    }
+
+    .search-button {
+      width: 48px;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+  // Responsive: Smallest screens - maintain full width
+  @media (max-width: 480px) {
+    height: 32px;
+
+    .search-input {
+      font-size: 11px;
+      padding: 0 10px;
+    }
+
+    .search-button {
+      width: 40px;
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
 }
 
 // Header Layout Styles
@@ -214,6 +260,7 @@ button {
   display: flex;
   align-items: center;
   gap: 10.5rem;
+  flex: 1;
 }
 
 .header-right {
@@ -275,4 +322,233 @@ button {
 .chevron-down-icon {
   width: 8px;
   height: 5px;
+}
+
+// Hamburger Menu Button
+.hamburger-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+// User Profile Wrapper and Dropdown
+.user-profile-wrapper {
+  position: relative;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: $color-white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 1001;
+  overflow: hidden;
+  animation: slideDown 0.2s ease-out;
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    width: 100%;
+    text-align: left;
+    color: $color-text-dark;
+    font-family: $font-roboto;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-regular;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: none;
+    background: none;
+
+    &:hover {
+      background-color: rgba(84, 95, 125, 0.05);
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(217, 217, 217, 0.3);
+    }
+
+    &.docs-item {
+      color: $color-brand-primary;
+    }
+
+    span {
+      flex: 1;
+    }
+
+    .dropdown-notification-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+// Desktop only elements (hide on mobile)
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+// Responsive Header Styles
+// ≤1024px: Adjust spacing to give search bar more room
+@media (max-width: 1024px) {
+  .navbar-container {
+    padding: 0 2rem 0 1.5rem;
+  }
+
+  .header-left {
+    gap: 1.5rem;
+  }
+
+  .header-right {
+    gap: 20px;
+  }
+}
+
+// ≤768px: Replace logo with hamburger, show dropdown functionality
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .header-left {
+    gap: 0.75rem;
+    flex: 1;
+    max-width: calc(100% - 140px); // Leave space for user profile
+  }
+
+  .header-right {
+    flex-shrink: 0;
+  }
+
+  .user-profile {
+    gap: 6px;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(84, 95, 125, 0.05);
+    }
+
+    &:active {
+      background-color: rgba(84, 95, 125, 0.1);
+    }
+  }
+
+  .profile-image {
+    width: 36px;
+    height: 36px;
+  }
+
+  .username {
+    font-size: 12px;
+  }
+
+  .chevron-down-icon {
+    width: 7px;
+    height: 4px;
+  }
+
+  .user-dropdown {
+    right: -10px;
+  }
+}
+
+// ≤480px: Further scale down all elements to prevent wrapping
+@media (max-width: 480px) {
+  .nav-bar-fixed {
+    padding: 0.875rem 0;
+  }
+
+  .navbar-container {
+    padding: 0 0.75rem;
+  }
+
+  .header-left {
+    gap: 0.5rem;
+    flex: 1;
+    max-width: calc(100% - 110px); // Leave space for smaller user profile
+  }
+
+  .header-right {
+    flex-shrink: 0;
+  }
+
+  .user-profile {
+    gap: 4px;
+    padding: 4px 6px;
+  }
+
+  .profile-image {
+    width: 28px;
+    height: 28px;
+  }
+
+  .username {
+    font-size: 10px;
+  }
+
+  .chevron-down-icon {
+    width: 6px;
+    height: 3px;
+  }
+
+  .hamburger-menu-btn {
+    .hamburger-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .user-dropdown {
+    min-width: 180px;
+    right: -8px;
+
+    .dropdown-item {
+      padding: 12px 16px;
+      font-size: 13px;
+      gap: 10px;
+
+      .dropdown-notification-icon {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
 }

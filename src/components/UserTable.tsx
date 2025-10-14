@@ -29,12 +29,12 @@ interface TableHeader {
 
 // Table headers configuration
 const TABLE_HEADERS: TableHeader[] = [
-  { label: 'ORGANIZATION', key: 'organization', width: '136px' },
-  { label: 'USERNAME', key: 'username', width: '126px' },
-  { label: 'EMAIL', key: 'email', width: '167px' },
-  { label: 'PHONE NUMBER', key: 'phoneNumber', width: '144px' },
-  { label: 'DATE JOINED', key: 'date', width: '174px' },
-  { label: 'STATUS', key: 'status', width: '120px' }
+  { label: 'ORGANIZATION', key: 'organization', width: '18%' },
+  { label: 'USERNAME', key: 'username', width: '16%' },
+  { label: 'EMAIL', key: 'email', width: '22%' },
+  { label: 'PHONE NUMBER', key: 'phoneNumber', width: '18%' },
+  { label: 'DATE JOINED', key: 'date', width: '22%' },
+  { label: 'STATUS', key: 'status', width: '14%' }
 ]
 
 const UserTable: React.FC = () => {
@@ -236,8 +236,8 @@ const UserTable: React.FC = () => {
       <table className="user-table">
         <thead>
           <tr className="table-header">
-            {TABLE_HEADERS.map((header) => (
-              <th key={header.key} className="table-header-cell" style={{ width: header.width }}>
+            {TABLE_HEADERS.map((header, index) => (
+              <th key={header.key} className={`table-header-cell column-${index + 1}`} style={{ width: header.width }}>
                 <span>{header.label}</span>
                 <button 
                   className="filter-btn"
@@ -247,7 +247,7 @@ const UserTable: React.FC = () => {
                 </button>
               </th>
             ))}
-            <th className="table-header-cell" style={{ width: '20px' }}>
+            <th className="table-header-cell" style={{ width: '4%' }}>
               <span></span>
             </th>
           </tr>
@@ -257,25 +257,25 @@ const UserTable: React.FC = () => {
         <tbody className="table-body">
           {paginatedUsers.map((user, index) => (
             <tr key={user.id} className="table-row">
-              <td className="table-cell" style={{ width: TABLE_HEADERS[0].width }}>
+              <td className="table-cell column-1" style={{ width: TABLE_HEADERS[0].width }}>
                 <span className="cell-content">{user.organization}</span>
               </td>
-              <td className="table-cell" style={{ width: TABLE_HEADERS[1].width }}>
+              <td className="table-cell column-2" style={{ width: TABLE_HEADERS[1].width }}>
                 <span className="cell-content">{user.username}</span>
               </td>
-              <td className="table-cell" style={{ width: TABLE_HEADERS[2].width }}>
+              <td className="table-cell column-3" style={{ width: TABLE_HEADERS[2].width }}>
                 <span className="cell-content">{user.email}</span>
               </td>
-              <td className="table-cell" style={{ width: TABLE_HEADERS[3].width }}>
+              <td className="table-cell column-4" style={{ width: TABLE_HEADERS[3].width }}>
                 <span className="cell-content">{user.phoneNumber}</span>
               </td>
-              <td className="table-cell" style={{ width: TABLE_HEADERS[4].width }}>
+              <td className="table-cell column-5" style={{ width: TABLE_HEADERS[4].width }}>
                 <span className="cell-content">{user.dateJoined}</span>
               </td>
-              <td className="table-cell" style={{ width: TABLE_HEADERS[5].width }}>
+              <td className="table-cell column-6" style={{ width: TABLE_HEADERS[5].width }}>
                 <span className={getStatusClass(user.status)}>{user.status}</span>
               </td>
-              <td className="table-cell" style={{ width: '20px' }}>
+              <td className="table-cell column-7" style={{ width: '4%' }}>
                 <button 
                   className="more-btn"
                   onClick={() => setActiveDropdown(activeDropdown === index ? null : index)}

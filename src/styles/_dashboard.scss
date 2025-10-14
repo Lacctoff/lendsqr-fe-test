@@ -26,6 +26,7 @@
   z-index: 999;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
   overflow-y: auto;
+  overflow-x: visible;
 
   // Hide scrollbar but keep scroll functionality
   scrollbar-width: none;
@@ -161,6 +162,303 @@
       margin-top: 1.875rem;
     }
   }
+
+  // Logout Menu
+  .logout-menu {
+    margin-top: 40px;
+
+    ul {
+      li {
+        a {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          border-top: 1px solid rgba(84, 95, 125, 0.1);
+          line-height: 19px;
+          padding: 20px 1.25rem 0.75rem 0;
+          text-decoration: none;
+          font-family: $font-work-sans;
+          font-size: $font-size-sm;
+          font-weight: $font-weight-regular;
+          color: $color-brand-primary;
+          position: relative;
+
+          img {
+            width: 1rem;
+            height: 1rem;
+          }
+        }
+      }
+    }
+
+    .version-number {
+      display: block;
+      margin-top: 40px;
+      font-size: 12px;
+      color: $color-brand-primary;
+      font-family: $font-work-sans;
+    }
+  }
+
+  // Add smooth transition for all sidebar state changes
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+
+  // Mobile logo (hidden by default, shown on mobile)
+  .sidebar-logo-mobile {
+    display: none;
+  }
+}
+
+// Tooltip styling (hidden by default, shown only in collapsed state)
+.nav-tooltip {
+  position: absolute;
+  left: calc(100% + 15px);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 12px;
+  background-color: #2d3748;
+  color: #ffffff;
+  font-size: 13px;
+  font-family: $font-work-sans;
+  font-weight: $font-weight-regular;
+  white-space: nowrap;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  z-index: 10000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  // Small arrow pointing left
+  &::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 4px 4px 0;
+    border-color: transparent #2d3748 transparent transparent;
+  }
+}
+
+// Sidebar Overlay (for mobile)
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in-out forwards;
+  cursor: pointer;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// Responsive Sidebar Styles
+// ≤1024px AND ≥769px: Collapsed state (88px width, icons only)
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sidebar-wrapper {
+    width: 88px;
+    padding: 140px 15px 30px 15px;
+    overflow-x: visible;
+
+    // Hide all text labels in collapsed state
+    .nav-text {
+      display: none;
+    }
+
+    // Hide menu section titles
+    .menu-card {
+      display: none;
+    }
+
+    nav {
+      overflow: visible;
+    }
+
+    .sidebar-header {
+      overflow: visible;
+      
+      ul {
+        overflow: visible;
+        
+        li {
+          overflow: visible;
+          
+          a {
+            justify-content: center;
+            gap: 0;
+            position: relative;
+            overflow: visible;
+
+            img:first-child {
+              margin: 0 auto;
+            }
+
+            // Hide dropdown arrow and label
+            img:last-child {
+              display: none;
+            }
+
+            // Show tooltip on hover in collapsed state
+            &:hover .nav-tooltip {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+
+    nav {
+      .dashboard-menu,
+      .customers-menu,
+      .business-menu,
+      .settings-menu {
+        overflow: visible;
+        
+        ul {
+          overflow: visible;
+          
+          li {
+            overflow: visible;
+            
+            a {
+              justify-content: center;
+              padding: 0.75rem 0;
+              margin: 0;
+              gap: 0;
+              position: relative;
+              overflow: visible;
+
+              img {
+                margin: 0 auto;
+              }
+
+              // Remove side background expansion on hover/active
+              &:hover,
+              &.active {
+                margin: 0;
+                padding: 0.75rem 0;
+              }
+
+              // Keep the left stripe for active state
+              &.active::before {
+                left: 0;
+              }
+
+              // Show tooltip on hover in collapsed state
+              &:hover .nav-tooltip {
+                opacity: 1;
+                visibility: visible;
+              }
+            }
+          }
+        }
+      }
+
+      .logout-menu {
+        overflow: visible;
+        
+        ul {
+          overflow: visible;
+          
+          li {
+            overflow: visible;
+            
+            a {
+              justify-content: center;
+              padding: 20px 0 0.75rem 0;
+              margin: 0;
+              gap: 0;
+              position: relative;
+              overflow: visible;
+
+              img {
+                margin: 0 auto;
+              }
+
+              // Show tooltip on hover in collapsed state
+              &:hover .nav-tooltip {
+                opacity: 1;
+                visibility: visible;
+              }
+            }
+          }
+        }
+
+        .version-number {
+          text-align: center;
+          font-size: 10px;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+
+  .dashboard-main {
+    margin-left: 88px;
+  }
+}
+
+// ≤768px: Hidden by default (mobile)
+@media (max-width: 768px) {
+  .sidebar-wrapper {
+    transform: translateX(-100%);
+    z-index: 1000;
+    padding-top: 0;
+
+    &.sidebar-open {
+      transform: translateX(0);
+    }
+
+    // Show Lendsqr logo at top of mobile sidebar
+    .sidebar-logo-mobile {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 30px 0 20px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(84, 95, 125, 0.1);
+      background-color: $color-white;
+      
+      img {
+        width: 145px;
+        height: auto;
+      }
+    }
+
+    .sidebar-header {
+      padding-top: 0;
+    }
+  }
+
+  .dashboard-main {
+    margin-left: 0;
+    margin-top: 80px;
+    padding: 2rem 1.5rem;
+  }
+}
+
+// ≤480px: Further adjustments for very small screens
+@media (max-width: 480px) {
+  .dashboard-main {
+    padding: 1.5rem 1rem;
+  }
 }
 
 // Stats Card Component
@@ -173,8 +471,6 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 240px;
-  flex: 1;
 
   &__icon {
     width: 40px;
@@ -213,10 +509,24 @@
 
 // Stats Grid Layout
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(4, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-bottom: 2rem;
+  
+  @media (min-width: 1201px) {
+    .stats-card {
+      flex: 0 0 calc(25% - 0.75rem);
+      max-width: none;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .stats-card {
+      flex: 0 0 calc(50% - 0.5rem);
+      max-width: none;
+    }
+  }
 }
 
 // Loader Styles
@@ -283,7 +593,7 @@
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
-  overflow: visible;
+  overflow-x: auto;
   margin-bottom: 20px;
   padding: 30px;
 
@@ -357,6 +667,10 @@
 
         &:hover {
           background-color: rgba(33, 63, 125, 0.02);
+        }
+        
+        &:last-child {
+          border-bottom: none;
         }
 
         .table-cell {
@@ -747,92 +1061,380 @@
   }
 }
 
-// Mobile Responsive Styles
+// Responsive container width and centering for ≤1200px
+@media (max-width: 1200px) {
+  .user-table-container {
+    width: 95%;
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px;
+  }
+  
+  .filter-dropdown {
+    left: 20px;
+    width: 250px;
+    max-height: 550px;
+    padding: 1.25rem;
+    padding-bottom: 1.75rem;
+    
+    .filter-form {
+      gap: 0.8rem;
+      
+      .filter-field {
+        gap: 0.4rem;
+        
+        label {
+          font-size: $font-size-xxs;
+        }
+        
+        input, select {
+          padding: 0.6rem;
+          font-size: $font-size-xs;
+        }
+      }
+      
+      .filter-actions {
+        gap: 0.8rem;
+        margin-top: 0.8rem;
+        
+        .reset-btn,
+        .filter-btn-submit {
+          padding: 0.6rem 1.2rem;
+          font-size: $font-size-xs;
+        }
+      }
+    }
+  }
+  
+  .pagination-container {
+    margin-top: 15px;
+    margin-bottom: 200px;
+    
+    .pagination-info {
+      gap: 8px;
+      font-size: $font-size-xxs;
+      
+      .custom-select-wrapper {
+        .items-per-page {
+          padding: 0.4rem 1.5rem 0.4rem 0.6rem;
+          font-size: $font-size-xxs;
+        }
+        
+        .select-arrow {
+          right: 0.6rem;
+          width: 10px;
+          height: 6px;
+        }
+      }
+    }
+    
+    .pagination-controls {
+      gap: 0.4rem;
+      
+      .pagination-btn {
+        padding: 0.4rem;
+        
+        img {
+          width: 8px;
+          height: 8px;
+        }
+      }
+      
+      .page-numbers {
+        gap: 0.2rem;
+        
+        .page-btn {
+          padding: 0.4rem 0.6rem;
+          font-size: $font-size-xxs;
+        }
+      }
+    }
+  }
+}
+
+// Tablet Responsive Styles - Hide Phone Number column at ≤1024px
+@media (max-width: 1024px) {
+  .user-table-container {
+    padding: 20px;
+    
+    .user-table {
+      .table-header {
+        .column-4 {
+          display: none;
+        }
+        
+        .table-header-cell {
+          padding: 0.75rem 15px 0.75rem 0;
+          font-size: $font-size-xxs;
+          
+          &:last-child {
+            padding-right: 0;
+          }
+        }
+        
+        // Redistribute column widths after hiding phone number
+        .column-1 { width: 20% !important; }
+        .column-2 { width: 18% !important; }
+        .column-3 { width: 26% !important; }
+        .column-5 { width: 26% !important; }
+        .column-6 { width: 16% !important; }
+        .column-7 { width: 4% !important; }
+      }
+      
+      .table-body {
+        .table-row {
+          .column-4 {
+            display: none;
+          }
+          
+          .table-cell {
+            padding: 1rem 15px 1rem 0;
+            font-size: $font-size-xs;
+            
+            &:last-child {
+              padding-right: 0;
+            }
+          }
+          
+          // Redistribute column widths after hiding phone number
+          .column-1 { width: 20% !important; }
+          .column-2 { width: 18% !important; }
+          .column-3 { width: 26% !important; }
+          .column-5 { width: 26% !important; }
+          .column-6 { width: 16% !important; }
+          .column-7 { width: 4% !important; }
+        }
+      }
+    }
+  }
+  
+  .filter-dropdown {
+    left: 15px;
+    width: 230px;
+    max-height: 500px;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    
+    .filter-form {
+      gap: 0.7rem;
+      
+      .filter-field {
+        gap: 0.35rem;
+        
+        label {
+          font-size: 0.7rem;
+        }
+        
+        input, select {
+          padding: 0.5rem;
+          font-size: 0.7rem;
+        }
+      }
+      
+      .filter-actions {
+        gap: 0.7rem;
+        margin-top: 0.7rem;
+        
+        .reset-btn,
+        .filter-btn-submit {
+          padding: 0.5rem 1rem;
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+  
+  .pagination-container {
+    margin-top: 12px;
+    margin-bottom: 150px;
+    
+    .pagination-info {
+      gap: 6px;
+      font-size: 0.7rem;
+      
+      .custom-select-wrapper {
+        .items-per-page {
+          padding: 0.35rem 1.2rem 0.35rem 0.5rem;
+          font-size: 0.7rem;
+        }
+        
+        .select-arrow {
+          right: 0.5rem;
+          width: 9px;
+          height: 5px;
+        }
+      }
+    }
+    
+    .pagination-controls {
+      gap: 0.3rem;
+      
+      .pagination-btn {
+        padding: 0.35rem;
+        
+        img {
+          width: 7px;
+          height: 7px;
+        }
+      }
+      
+      .page-numbers {
+        gap: 0.15rem;
+        
+        .page-btn {
+          padding: 0.35rem 0.5rem;
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+// Mobile Responsive Styles - Hide Email and Date Joined at ≤768px
 @media (max-width: 768px) {
   .user-table-container {
+    padding: 15px;
+    
     .user-table {
-      min-width: 600px;
-
       .table-header {
         .table-header-cell {
-          padding: 0.75rem 20px 0.75rem 0;
-          font-size: $font-size-xxs;
+          padding: 0.5rem 12px 0.5rem 0;
+          font-size: 0.7rem;
 
           &:last-child {
             padding-right: 0;
           }
         }
+        
+        .column-3,
+        .column-5 {
+          display: none;
+        }
+        
+        // Redistribute column widths after hiding email and date joined
+        .column-1 { width: 28% !important; }
+        .column-2 { width: 25% !important; }
+        .column-6 { width: 23% !important; }
+        .column-7 { width: 6% !important; }
       }
 
       .table-body {
         .table-row {
           .table-cell {
-            padding: 0.75rem 20px 0.75rem 0;
-            font-size: $font-size-xs;
+            padding: 0.75rem 12px 0.75rem 0;
+            font-size: 0.75rem;
 
             &:last-child {
               padding-right: 0;
             }
           }
+          
+          .column-3,
+          .column-5 {
+            display: none;
+          }
+          
+          // Redistribute column widths after hiding email and date joined
+          .column-1 { width: 28% !important; }
+          .column-2 { width: 25% !important; }
+          .column-6 { width: 23% !important; }
+          .column-7 { width: 6% !important; }
         }
       }
     }
 
     .filter-dropdown {
-      left: 15px;
-      width: 270px;
-      max-height: 600px;
-      padding: 1rem;
-      padding-bottom: 1.5rem;
-      overflow-y: auto;
+      left: 10px;
+      width: 280px;
+      max-height: 450px;
+      padding: 0.8rem;
+      padding-bottom: 1.2rem;
       
-      // Hide scrollbar for all browsers
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE and Edge */
-      
-      &::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-      }
-
       .filter-form {
         grid-template-columns: 1fr;
-        gap: 0.75rem;
-      }
-    }
-
-    .pagination-container {
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem;
-      background: $color-white;
-
-      .pagination-info {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-
-        .custom-select-wrapper {
-          .items-per-page {
-            padding: 0.4rem 1.5rem 0.4rem 0.5rem;
-            font-size: $font-size-xs;
-            font-weight: $font-weight-medium;
+        gap: 0.6rem;
+        
+        .filter-field {
+          gap: 0.3rem;
+          
+          label {
+            font-size: 0.65rem;
           }
-
-          .select-arrow {
-            right: 0.5rem;
-            width: 10px;
-            height: 6px;
-            opacity: 0.6;
+          
+          input, select {
+            padding: 0.45rem;
+            font-size: 0.65rem;
+          }
+          
+          .date-input {
+            input {
+              padding: 0.45rem;
+              font-size: 0.65rem;
+            }
+            
+            img {
+              width: 12px;
+              height: 12px;
+            }
+          }
+        }
+        
+        .filter-actions {
+          gap: 0.6rem;
+          margin-top: 0.6rem;
+          
+          .reset-btn,
+          .filter-btn-submit {
+            padding: 0.45rem 0.8rem;
+            font-size: 0.65rem;
           }
         }
       }
-
+    }
+    
+    .pagination-container {
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 10px;
+      margin-bottom: 100px;
+      
+      .pagination-info {
+        gap: 5px;
+        font-size: 0.65rem;
+        
+        .custom-select-wrapper {
+          .items-per-page {
+            padding: 0.3rem 1rem 0.3rem 0.4rem;
+            font-size: 0.65rem;
+          }
+          
+          .select-arrow {
+            right: 0.4rem;
+            width: 8px;
+            height: 5px;
+          }
+        }
+      }
+      
       .pagination-controls {
+        gap: 0.25rem;
+        
+        .pagination-btn {
+          padding: 0.3rem;
+          
+          img {
+            width: 6px;
+            height: 6px;
+          }
+        }
+        
         .page-numbers {
+          gap: 0.1rem;
+          
           .page-btn {
-            padding: 0.4rem 0.6rem;
-            font-size: $font-size-xs;
-            font-weight: $font-weight-medium;
+            padding: 0.3rem 0.4rem;
+            font-size: 0.65rem;
           }
         }
       }
@@ -840,32 +1442,51 @@
   }
 }
 
+// Small Mobile Responsive Styles - Hide Username at ≤480px
 @media (max-width: 480px) {
   .user-table-container {
+    padding: 10px;
+    
     .user-table {
-      min-width: 500px;
-
       .table-header {
         .table-header-cell {
-          padding: 0.5rem 15px 0.5rem 0;
-          font-size: $font-size-xxs;
+          padding: 0.4rem 8px 0.4rem 0;
+          font-size: 0.65rem;
 
           &:last-child {
             padding-right: 0;
           }
         }
+        
+        .column-2 {
+          display: none;
+        }
+        
+        // Final column widths for smallest screens (only Organization, Status, Actions)
+        .column-1 { width: 35% !important; }
+        .column-6 { width: 35% !important; }
+        .column-7 { width: 10% !important; }
       }
 
       .table-body {
         .table-row {
           .table-cell {
-            padding: 0.5rem 15px 0.5rem 0;
-            font-size: $font-size-xxs;
+            padding: 0.5rem 8px 0.5rem 0;
+            font-size: 0.7rem;
 
             &:last-child {
               padding-right: 0;
             }
           }
+          
+          .column-2 {
+            display: none;
+          }
+          
+          // Final column widths for smallest screens (only Organization, Status, Actions)
+          .column-1 { width: 35% !important; }
+          .column-6 { width: 35% !important; }
+          .column-7 { width: 10% !important; }
         }
       }
     }
@@ -880,19 +1501,97 @@
       }
     }
 
+    .filter-dropdown {
+      left: 5px;
+      width: 260px;
+      max-height: 400px;
+      padding: 0.6rem;
+      padding-bottom: 1rem;
+      
+      .filter-form {
+        gap: 0.5rem;
+        
+        .filter-field {
+          gap: 0.25rem;
+          
+          label {
+            font-size: 0.6rem;
+          }
+          
+          input, select {
+            padding: 0.4rem;
+            font-size: 0.6rem;
+          }
+          
+          .date-input {
+            input {
+              padding: 0.4rem;
+              font-size: 0.6rem;
+            }
+            
+            img {
+              width: 10px;
+              height: 10px;
+            }
+          }
+        }
+        
+        .filter-actions {
+          gap: 0.5rem;
+          margin-top: 0.5rem;
+          
+          .reset-btn,
+          .filter-btn-submit {
+            padding: 0.4rem 0.7rem;
+            font-size: 0.6rem;
+          }
+        }
+      }
+    }
+
     .pagination-container {
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 8px;
+      margin-bottom: 80px;
+      
       .pagination-info {
+        gap: 4px;
+        font-size: 0.6rem;
+        
         .custom-select-wrapper {
           .items-per-page {
-            padding: 0.3rem 1.2rem 0.3rem 0.4rem;
-            font-size: $font-size-xxs;
+            padding: 0.25rem 0.8rem 0.25rem 0.3rem;
+            font-size: 0.6rem;
           }
 
           .select-arrow {
-            right: 0.4rem;
-            width: 8px;
-            height: 5px;
+            right: 0.3rem;
+            width: 7px;
+            height: 4px;
             opacity: 0.6;
+          }
+        }
+      }
+      
+      .pagination-controls {
+        gap: 0.2rem;
+        
+        .pagination-btn {
+          padding: 0.25rem;
+          
+          img {
+            width: 5px;
+            height: 5px;
+          }
+        }
+        
+        .page-numbers {
+          gap: 0.08rem;
+          
+          .page-btn {
+            padding: 0.25rem 0.3rem;
+            font-size: 0.6rem;
           }
         }
       }
@@ -999,7 +1698,7 @@
   display: flex;
   align-items: center;
   gap: 30px;
-  // border-bottom: 1px solid rgba(84, 95, 125, 0.1);
+  flex-wrap: wrap;
 
   .profile-section {
     display: flex;
@@ -1172,20 +1871,11 @@
   }
 
   .fields-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.75rem;
     border-bottom: 1px solid rgba(84, 95, 125, 0.1);
     padding-bottom: 1.75rem;
-  }
-
-  // Education and Employment section - 4 columns
-  &:nth-child(2) .fields-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  &:last-child .fields-grid {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -1194,6 +1884,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex: 1 1 200px; // Grow, shrink, base width of 200px
+  min-width: 200px; // Prevent shrinking below 200px
 
   .info-label {
     font-family: $font-work-sans;
@@ -1209,6 +1901,10 @@
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
     color: $color-text-dark;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
   }
 }
 
@@ -1221,16 +1917,14 @@
     color: $color-brand-primary;
     margin: 0 0 2rem 0;
     padding-bottom: 0.5rem;
-    // border-bottom: 1px solid rgba(84, 95, 125, 0.1); // Removed border
   }
 }
 
 .guarantor-card {
   .fields-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.75rem;
-    border-bottom: 1px solid rgba(84, 95, 125, 0.1);
     padding-bottom: 1.75rem;
   }
 }
@@ -1277,48 +1971,132 @@
 // Responsive Design for User Details
 @media (max-width: 768px) {
   .user-details-page {
-    padding: 1rem;
+    padding: 0.8rem;
 
     .page-header {
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.8rem;
       align-items: stretch;
+      margin-bottom: 1.5rem; // Reduced from 2.75rem
+
+      .title-header {
+        h3 {
+          font-size: 1.2rem; // Reduced from 1.5rem
+        }
+      }
 
       .action-buttons {
         justify-content: center;
+        gap: 0.5rem; // Reduced button spacing
+        
+        .blacklist-btn,
+        .activate-btn {
+          padding: 0.6rem 1.2rem; // Reduced padding
+          font-size: 0.8rem; // Reduced font size
+        }
       }
     }
   }
 
   .user-profile-container {
-    .user-profile-card {
-      flex-direction: column;
-      text-align: center;
-      gap: 1.5rem;
+    .user-profile-card {     
+      flex-direction: row; // Keep horizontal layout but allow wrapping
+      flex-wrap: wrap; // Enable wrapping
+      
+      gap: 1.2rem; // Reduced from 1.5rem
+      padding: 1.5rem; // Reduced from 2rem
+      
+      .profile-section {
+        gap: 1rem; // Reduced from 1.25rem
+        
+        .user-avatar {
+          width: 70px; // Reduced from 100px
+          height: 70px; // Reduced from 100px
+          
+          .avatar-text {
+            font-size: 1.5rem; // Reduced from 2rem
+          }
+        }
+        
+        .user-info {
+          .user-name {
+            font-size: 1.1rem; // Reduced from 1.25rem
+          }
+          
+          .user-id {
+            font-size: 0.8rem; // Reduced from 0.9rem
+          }
+        }
+      }
       
       .divider {
-        width: 80px;
-        height: 1px;
+        
       }
 
       .tier-section,
       .financial-section {
         min-width: auto;
+        
+        .section-label {
+          font-size: 0.7rem; // Reduced font size
+        }
+        
+        .section-value {
+          font-size: 0.8rem; // Reduced font size
+        }
+      }
+      
+      .financial-section {
+        width: 100%; // Make financial section take full width to wrap to next line
+        flex-basis: 100%; // Force it to wrap to next line
+        margin-bottom: 0.75rem; // Add some top margin when wrapped
+        align-self: flex-start; // Align with the start (left side) like the profile section
+        text-align: left; // Align text to the left like the profile section
+        padding-left: 80px;
+      }
+      
+      // Hide the divider after tier-section when financial-section wraps
+      .tier-section + .divider {
+        display: none;
       }
     }
 
     .tab-navigation {
       padding: 0 1rem;
-      flex-wrap: wrap;
-      gap: 1rem;
+      flex-wrap: wrap; // Allow wrapping
+      gap: 0.8rem; // Increased gap for better spacing
+      justify-content: center; // Center the tabs
+      
+      .tab-button {
+        padding: 0.8rem 1.2rem; // Adequate padding
+        font-size: 0.75rem; // Reduced font size
+        white-space: nowrap; // Prevent text wrapping
+        flex: 1; // Allow flexible sizing
+        min-width: calc(33.333% - 0.6rem); // Three per row with gap consideration
+        max-width: calc(33.333% - 0.6rem); // Ensure consistent sizing
+        text-align: center; // Center text within each tab
+      }
     }
   }
 
 
   .user-info-section .fields-grid,
   .guarantor-card .fields-grid {
-    grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .user-info-section .info-field,
+  .guarantor-card .info-field {
+    flex: 1 1 calc(50% - 0.5rem); // Two columns on mobile
+    min-width: 150px;
+
+    .info-label {
+      font-size: 0.625rem; // Smaller label text on mobile
+    }
+
+    .info-value {
+      font-size: 0.813rem; // Smaller value text on mobile
+    }
   }
 
   .action-buttons {
@@ -1333,20 +2111,119 @@
 
 @media (max-width: 480px) {
   .user-details-page {
-    padding: 0.5rem;
+    padding: 0.4rem;
+    
+    .page-header {
+      margin-bottom: 1rem; // Further reduced
+      gap: 0.6rem;
+      
+      .title-header {
+        h3 {
+          font-size: 1rem; // Further reduced
+        }
+      }
+      
+      .action-buttons {
+        gap: 0.4rem;
+        
+        .blacklist-btn,
+        .activate-btn {
+          padding: 0.5rem 1rem; // Further reduced
+          font-size: 0.75rem; // Further reduced
+        }
+      }
+    }
   }
 
   .user-profile-container {
     .user-profile-card {
       padding: 1rem;
+      gap: 1rem; // Further reduced
+      
+      .profile-section {
+        gap: 0.8rem;
+        
+        .user-avatar {
+          width: 60px; // Further reduced from 70px
+          height: 60px; // Further reduced from 70px
+          
+          .avatar-text {
+            font-size: 1.3rem; // Further reduced
+          }
+        }
+        
+        .user-info {
+          .user-name {
+            font-size: 1rem; // Further reduced
+          }
+          
+          .user-id {
+            font-size: 0.75rem; // Further reduced
+          }
+        }
+      }
+      
+      .divider {
+        width: 50px; // Further reduced
+      }
+      
+      .tier-section,
+      .financial-section {
+        gap: 0.6rem; // Further reduced
+        
+        .section-label {
+          font-size: 0.65rem; // Further reduced
+        }
+        
+        .section-value {
+          font-size: 0.75rem; // Further reduced
+        }
+      }
+      
+      .financial-section {
+        width: 100%; // Make financial section take full width to wrap to next line
+        flex-basis: 100%; // Force it to wrap to next line
+        margin-top: 0.4rem; // Add some top margin when wrapped (slightly less for smaller screens)
+        align-self: flex-start; // Align with the start (left side) like the profile section
+        text-align: left; // Align text to the left like the profile section
+      }
+      
+      // Hide the divider after tier-section when financial-section wraps
+      .tier-section + .divider {
+        display: none;
+      }
     }
 
     .tab-navigation {
       padding: 0 0.5rem;
+      flex-wrap: wrap; // Allow wrapping
+      gap: 0.6rem; // Adequate gap for smaller screens
+      justify-content: center; // Center the tabs
+      
+      .tab-button {
+        padding: 0.6rem 1rem; // Adequate padding
+        font-size: 0.7rem; // Further reduced
+        white-space: nowrap; // Prevent text wrapping
+        flex: 1; // Allow flexible sizing
+        min-width: calc(33.333% - 0.4rem); // Three per row with gap consideration
+        max-width: calc(33.333% - 0.4rem); // Ensure consistent sizing
+        text-align: center; // Center text within each tab
+      }
     }
   }
 
   .tab-content {
-    padding: 1rem;
+    padding: 0.8rem; // Reduced from 1rem
+  }
+
+  .user-info-section .info-field,
+  .guarantor-card .info-field {
+    .info-label {
+      font-size: 0.563rem; // Even smaller label text on very small screens
+    }
+
+    .info-value {
+      font-size: 0.75rem; // Even smaller value text on very small screens
+    }
   }
 }
