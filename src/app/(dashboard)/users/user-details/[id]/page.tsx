@@ -82,7 +82,7 @@ const UserDetails = () => {
   return (
     <div className="user-details-page">
       <Link href="/users" className="back-navigation">
-        <Image src="/icons/back-dash-icon.svg" alt="Back" width={16} height={16} />
+        <Image src="/icons/back-dash-icon.svg" alt="Back" width={30} height={30} />
         <span>Back to Users</span>
       </Link>
 

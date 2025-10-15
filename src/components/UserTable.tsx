@@ -32,8 +32,8 @@ const TABLE_HEADERS: TableHeader[] = [
   { label: 'USERNAME', key: 'username', width: '16%' },
   { label: 'EMAIL', key: 'email', width: '22%' },
   { label: 'PHONE NUMBER', key: 'phoneNumber', width: '18%' },
-  { label: 'DATE JOINED', key: 'date', width: '22%' },
-  { label: 'STATUS', key: 'status', width: '14%' }
+  { label: 'DATE JOINED', key: 'date', width: '20%' },
+  { label: 'STATUS', key: 'status', width: '16%' }
 ]
 
 const UserTable: React.FC = () => {
@@ -234,7 +234,7 @@ const UserTable: React.FC = () => {
                 </button>
               </th>
             ))}
-            <th className="table-header-cell" style={{ width: '4%' }}>
+            <th className="table-header-cell" style={{ width: '6%' }}>
               <span></span>
             </th>
           </tr>
@@ -261,7 +261,7 @@ const UserTable: React.FC = () => {
               <td className="table-cell column-6" style={{ width: TABLE_HEADERS[5].width }}>
                 <span className={getStatusClass(user.status)}>{user.status}</span>
               </td>
-              <td className="table-cell column-7" style={{ width: '4%' }}>
+              <td className="table-cell column-7" style={{ width: '6%' }}>
                 <button 
                   className="more-btn"
                   onClick={() => setActiveDropdown(activeDropdown === index ? null : index)}
@@ -336,7 +336,7 @@ const UserTable: React.FC = () => {
           </button>
           
           <div className="page-numbers">
-            {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+            {Array.from({ length: Math.min(3, totalPages) }, (_, i) => {
               const pageNum = i + 1
               return (
                 <button
@@ -351,6 +351,12 @@ const UserTable: React.FC = () => {
             {totalPages > 5 && (
               <>
                 <span>...</span>
+                <button
+                  className={`page-btn ${pagination.currentPage === totalPages - 1 ? 'active' : ''}`}
+                  onClick={() => goToPage(totalPages - 1)}
+                >
+                  {totalPages - 1}
+                </button>
                 <button
                   className={`page-btn ${pagination.currentPage === totalPages ? 'active' : ''}`}
                   onClick={() => goToPage(totalPages)}

@@ -61,7 +61,7 @@ button {
   .floating-input {
     width: 100%;
     padding: 1.125rem 1rem;
-    border: 1px solid $color-border-gray-stroke;
+    border: 2px solid $color-border-gray-stroke;
     border-radius: 5px;
     font-size: $font-size-xs;
     font-weight: $font-weight-regular;
@@ -79,6 +79,7 @@ button {
       transform: translateY(-2.1rem);
       font-size: $font-size-xxs;
       color: $color-brand-secondary;
+      opacity: 1;
     }
   }
 
@@ -90,10 +91,11 @@ button {
     background-color: $color-white;
     padding: 0 4px;
     font-size: $font-size-xs;
-    font-weight: 500;
+    font-weight: 400;
     color: $color-text-dark;
     pointer-events: none;
     transition: all 0.1s ease;
+    opacity: 0.6;
   }
 }
 
@@ -226,8 +228,9 @@ button {
   right: 0;
   z-index: 1000;
   background-color: $color-white;
-  padding: 1.5rem 0;
+  padding: 35px 0;
   box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+  // min-height: 100px;
 }
 
 .navbar-container {
@@ -237,6 +240,7 @@ button {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  max-height: 30px;
 }
 
 .header-left {
@@ -249,7 +253,7 @@ button {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 30px;
 }
 
 .docs-link {
@@ -261,6 +265,7 @@ button {
   line-height: 16px;
   transition: color 0.2s ease;
   text-decoration: underline;
+  margin-right: 17px;
 }
 
 .notifications-btn {

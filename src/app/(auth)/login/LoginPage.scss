@@ -4,18 +4,20 @@
 @use '../../../styles/mixins' as *;
 
 .auth-form-content {
-  @include flex-center(column, start, center);
+  // @include flex-center(column, start, center);
+  margin-top: 180px;
   max-width: $auth-form-max-width;
   width: 100%;
 
   .auth-form-logo {
     display: none;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
     
     @media (max-width: $auth-mobile-breakpoint) {
       display: block;
       width: 140px;
       height: auto;
+      margin-top: -7rem;
     }
   }
   
@@ -53,6 +55,14 @@
   .floating-input-wrapper {
     position: relative;
     
+    // Floating input placeholder styles
+    input::placeholder {
+      font-family: $font-avenir-next;
+      font-weight: $font-weight-regular;
+      font-size: $font-size-xs;
+      color: $color-text-dark;
+      opacity: 0.4;
+    }
   }
 
   // Forgot password link styles

@@ -10,7 +10,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             <Image src="/images/Union.svg" alt="Lendsqr Logo" width={25} height={25} />
           </div>
           <div className='lendsqr'>
-            <Image src="/images/lendsqr.svg" alt="Lendsqr Logo" width={115} height={23} />
+            <Image src="/images/lendsqr.svg" alt="Lendsqr Logo" width={138} height={36} />
           </div>
         </div>
         <Image src="/images/sign-in-image.svg" alt="Auth Illustration" width={600} height={337} priority />

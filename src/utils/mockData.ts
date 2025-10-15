@@ -72,14 +72,17 @@ const getRandomItem = <T>(array: T[], rng: SeededRandom): T => array[rng.nextInt
 
 const getRandomDate = (start: Date, end: Date, rng: SeededRandom): string => {
   const date = new Date(start.getTime() + rng.next() * (end.getTime() - start.getTime()));
-  return date.toLocaleDateString('en-US', {
+  const datePart = date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
-    day: 'numeric',
+    day: 'numeric'
+  });
+  const timePart = date.toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
     hour12: true
   });
+  return `${datePart} ${timePart}`;
 };
 
 const generatePhoneNumber = (rng: SeededRandom): string => {
